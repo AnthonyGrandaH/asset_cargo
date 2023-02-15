@@ -55,7 +55,7 @@ const deleteCargo = async (req, res, next) => {
 
         if (result.rowCount === 0)
             return res.status(404).json({
-                message: "Tarea no encontrada"
+                message: "Cargo no encontrado"
             });
         return res.sendStatus(204)
     } catch (error) {
