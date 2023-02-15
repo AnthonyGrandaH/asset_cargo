@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import TaskForm from './components/Taskform'
-import TaskList from './components/Tasklist'
+import CargoForm from './components/Cargoform'
+import CargoList from './components/Cargolist'
 import Menu from './components/Navbar'
 import { Container } from '@mui/material'
 
@@ -11,9 +11,9 @@ export default function App() {
       <Menu />
         <Container>
           <Routes>
-            <Route path='/' element={<TaskList />} />
-            <Route path='/task/new' element={<TaskForm />} />
-            <Route path='/task/:id/edit' element={<TaskForm />} />
+            <Route path='/' element={<CargoList />} />
+            <Route path='/cargo/new' element={<CargoForm />} />
+            <Route path='/cargo/:id/edit' element={<CargoForm />} />
 
           </Routes>
         </Container>

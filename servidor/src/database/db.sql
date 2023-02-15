@@ -1,4 +1,4 @@
-CREATE DATABASE departamento
+CREATE DATABASE proyecto_assets
 
 CREATE TABLE cargo(
     id SERIAL PRIMARY KEY,
