@@ -8,16 +8,16 @@ const { updateCargo } = require('../controllers/controller')
 
 const router = Router();
 
-router.get('/task', getAllCargo) 
+router.get('/cargo', getAllCargo) 
 
 
-router.get('/task/:id', getCargo)
+router.get('/cargo/:id', getCargo)
 
-router.post('/task/',  createCargo)
+router.post('/cargo/',  createCargo)
 
-router.delete('/task/:id', deleteCargo)
+router.delete('/cargo/:id', deleteCargo)
 
-router.put('/task/:id', updateCargo)
+router.put('/cargo/:id', updateCargo)
 
 
 
