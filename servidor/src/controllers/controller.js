@@ -1,19 +1,6 @@
 const { send } = require('express/lib/response')
 const pool = require('../db')
 
-const getAllCargo = async (req, res, next) => {
-    try {
-
-        const allCargo = await pool.query('SELECT *FROM cargo')
-        res.json(allCargo.rows)
-
-    } catch (error) {
-        return next(error);
-    }
-
-
-}
-
 const getCargo = async (req, res, next) => {
     try {
 
@@ -60,7 +47,6 @@ const deleteCargo = async (req, res, next) => {
         return res.sendStatus(204)
     } catch (error) {
         return next(error);
-
     }
 
 }
@@ -82,13 +68,9 @@ const updateCargo = async (req, res, next) => {
 
     } catch (error) {
         return next(error);
-
     }
 
-
-
 }
-
 
 module.exports = {
     getAllCargo,

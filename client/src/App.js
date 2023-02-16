@@ -8,10 +8,10 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-      <Menu />
+        <Menu />
         <Container>
           <Routes>
-            <Route path='/' element={<CargoList />} />
+            <Route path='/cargo' element={<CargoList />} />
             <Route path='/cargo/new' element={<CargoForm />} />
             <Route path='/cargo/:id/edit' element={<CargoForm />} />
 

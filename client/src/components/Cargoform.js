@@ -20,8 +20,8 @@ export default function CargoForm() {
         setLoading(true);
 
         if (editing) {
-           const response = await fetch(`http://localhost:4000/cargo/${params.id}`, {
-                method:"PUT",
+            const response = await fetch(`http://localhost:4000/cargo/${params.id}`, {
+                method: "PUT",
                 body: JSON.stringify(cargo),
                 headers: { "Content-Type": "application/json" },
             });
@@ -38,7 +38,7 @@ export default function CargoForm() {
         }
 
         setLoading(false);
-        navigate("/");
+        navigate("/cargo");
     };
     const handleChange = e => {
         setCargo({ ...cargo, [e.target.name]: e.target.value })
@@ -55,18 +55,18 @@ export default function CargoForm() {
         if (params.id) {
             loadcargo(params.id);
         }
-    }, [])
+    }, [params.id])
 
     return (
-        <Grid container direction="column" alignItems="center" justifyContent="center" >
-            <Grid item xs={3}>
+        <Grid container  alignItems='center' justifyContent='center'>
+            <Grid item xs={3} alignContent='center'>
                 <Card sx={{ mt: 5 }} style={{
                     backgroundColor: "#12272e",
                     padding: "1rem"
                 }}>
-                    <Typography variant="5" textAlign='center' color='white'>
-                        {editing ? "Editar Cargo":"Agregar Cargo"}
-                        
+                    <Typography variant="h5" textAlign='center' color='white'>
+                        {editing ? "Editar Cargo" : "Agregar Cargo"}
+
                     </Typography>
                     <CardContent>
                         <form onSubmit={handleSubmit}>
@@ -98,10 +98,13 @@ export default function CargoForm() {
                                 inputProps={{ style: { color: "white" } }}
                                 InputLabelProps={{ style: { color: "white" } }}
                             />
-                            <Button variant="contained" color="primary" type="submit" >
-                                Guardar
-                            </Button>
 
+                            <Button variant='contained' style={{ display: 'block', margin: '0 auto' }} textAlign='center' color='primary' type='submit' disabled={
+                                !cargo.tipocargo ||
+                                !cargo.descripcioncargo
+                            }>
+                                {loading ? (<CircularProgress color="inherit" size={24} />) : (editing ? "Modificar cargo" : "Registrar cargo")}
+                            </Button>
 
                         </form>
                     </CardContent>
